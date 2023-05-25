@@ -2,12 +2,6 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  //   const user = await prisma.user.create({
-  //     data: {
-  //       email: "hbeing427@gmail.com",
-  //       username: "Aashish-Upadhyay-101",
-  //     },
-  //   });
   const user = (await prisma.user.findFirst({
     include: {
       Post: true,
@@ -22,8 +16,6 @@ async function main() {
       published: false,
     },
   });
-
-  console.log(post);
 }
 
 main()
