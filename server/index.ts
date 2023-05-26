@@ -13,8 +13,6 @@ const appRouter = router({
 
   getUserById: publicProcedure.input(z.number()).query(async (opts) => {
     const { input } = opts;
-    console.log(opts);
-    console.log(input);
     const user = await prisma.user.findFirstOrThrow({
       where: {
         id: input,
